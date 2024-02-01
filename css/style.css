@@ -1,0 +1,32 @@
+body {
+  /*background-color: #eee;*/
+  font-family: "Poppins", sans-serif;
+  font-weight: 300;
+}
+
+footer {
+  margin: auto;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+nav {
+  background: rgb(0,0,0);
+  background: linear-gradient(180deg, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.3) 36%, rgba(0,0,0,0) 98%);
+}
+
+.nav-link {
+  color: white;
+}
+
+.nav-link:hover {
+  color: #b4b4b4;
+}
+
+.navbar-toggler {
+  color: white;
+}
+
+.bi-list {
+  color: white;
+}
