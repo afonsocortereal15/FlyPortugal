@@ -11,15 +11,15 @@
 
   <!-- Bootstrap -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
-  
+
   <!-- Bootstrap Icons-->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
 
   <!-- Core theme CSS -->
-  <link rel="stylesheet" href="css/style.css">
-  <link rel="stylesheet" href="css/index.css">
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/login.css" />
 </head>
 
 <body class="d-flex flex-column h-100">
@@ -32,12 +32,39 @@
       </div>
     </nav>
     <!-- Header -->
-    <header class=" py-5">
+    <header class="py-10">
       <div class="container px-5">
         <div class="row gx-5 align-items-center justify-content-center">
-          <div class="col-lg-8 col-xl-7 col-xxl-6">
-            <div class="my-5 text-center text-xl-start">
-              
+          <div class="col-lg-6 col-xl-6 col-xxl-5">
+            <div class="my-6 text-center text-xl-start">
+              <div class="container">
+                <div class="row justify-content-center">
+                  <div class="card my-4">
+                    <form class="card-body cardbody-color p-lg-4">
+                      <div class="text-center">
+                        <img src="assets/user.png" class="img-fluid profile-image-pic img-thumbnail rounded-circle my-2"
+                          width="100px" alt="profile" />
+                      </div>
+                      <div class="mb-3">
+                        <input type="text" class="form-control" id="email" placeholder="E-mail" />
+                      </div>
+                      <div class="mb-3">
+                        <input type="password" class="form-control" id="password" placeholder="Password" />
+                      </div>
+                      <div class="text-center">
+                        <button type="submit" class="btn btn-color px-5 mb-5 w-100">
+                          Login
+                        </button>
+                      </div>
+                      <div id="emailHelp" class="form-text text-center mb-2 text-dark">
+                        Not Registered?
+                        <a href="register.html" class="fw-bold">
+                          Create an Account</a>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
