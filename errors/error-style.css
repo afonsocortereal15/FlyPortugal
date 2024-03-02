@@ -1,0 +1,39 @@
+main {
+  background-image: url('../assets/bg/default-bg.jpeg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+.btn-color {
+  background-color: #127045;
+  color: #fff;
+}
+
+.btn-color:hover {
+  background-color: #127045;
+  color: #fff;
+}
+
+.profile-image-pic {
+  height: 100px;
+  width: 100px;
+  object-fit: cover;
+}
+
+.cardbody-color {
+  background-color: #ffffff;
+}
+
+a {
+  color: #127045;
+}
+
+a:hover {
+  color: #1a9c62;
+}
+
+.btn-primary {
+  background-color: #127045 !important;
+  border-color: #127045 !important;
+}

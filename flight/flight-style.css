@@ -1,0 +1,26 @@
+main {
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+.airline-logo {
+  padding: 10px;
+}
+
+.airline-name {
+  margin-bottom: 0 !important;
+}
+
+.flight-card {
+  margin: 2rem;
+}
+
+.flight-number {
+  padding: 0px;
+  margin: 0px;
+}
+
+p {
+  margin: 0px;
+}
