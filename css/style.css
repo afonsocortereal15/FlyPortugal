@@ -15,7 +15,7 @@ nav {
   background: linear-gradient(180deg, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0.3) 36%, rgba(0, 0, 0, 0) 98%);
 }
 
-a{
+a {
   color: none;
 }
 
@@ -28,7 +28,7 @@ a{
 }
 
 .nav-link:focus {
-  color:white;
+  color: white;
 }
 
 .navbar-toggler {
