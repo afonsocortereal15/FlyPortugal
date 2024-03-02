@@ -1,5 +1,5 @@
 main {
-  background-image: url('../assets/bg/index-bg.jpeg');
+  background-image: url('../assets/bg/default-bg.jpeg');
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
@@ -40,4 +40,3 @@ main {
   background-color: #127045 !important;
   border-color: #127045 !important;
 }
-
