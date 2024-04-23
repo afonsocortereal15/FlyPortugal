@@ -61,7 +61,7 @@
               </p>
               <div class="search">
                 <i class="bi bi-search"></i>
-                <form action="flight/index.php" method="get">
+                <form action="public/main.php" method="get">
                   <input type="text" class="form-control col-sm-12 col-md-6" placeholder="Flight Number" name="flight" value="<?php echo $_COOKIE['flight']; ?>" />
                   <button class="btn btn-primary" type="submit">Search</button>
                 </form>

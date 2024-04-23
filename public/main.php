@@ -1,5 +1,5 @@
 <?php
-include("../php/search.php");
+include("../src/flightSearch.php");
 ?>
 <html lang="en">
 
@@ -19,8 +19,10 @@ include("../php/search.php");
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
 
   <!-- Core theme CSS -->
-  <link rel="stylesheet" type="text/css" href="../css/style.css">
-  <link rel="stylesheet" type="text/css" href="flight-style.css">
+  <link rel="stylesheet" type="text/css" href="../assets/css/style.css">
+  <link rel="stylesheet" type="text/css" href="../assets/css/flight.css">
+
+  <script href="../assets/js/" ></script>
 </head>
 
 <body class="d-flex flex-column h-100">
@@ -52,7 +54,7 @@ include("../php/search.php");
     <section class="py-3">
       <div class="container px-5">
         <div class="row gx-5 align-items-center justify-content-center">
-          <div class="col-md-8 bg-white rounded-3">
+          <div class="col-md-8 bg-white rounded-3" style="margin-bottom: 100px;">
             <div class="flight-card text-right text-xl-start">
               <div class="row">
                 <div class="col align-self-center text-center">
@@ -77,7 +79,7 @@ include("../php/search.php");
                   </p>
                 </div>
                 <div class="col-4 text-center align-self-center">
-                  <img src="../assets/airplane.png" width="40px" style="margin: 10px;">
+                  <img src="../assets/img/airplane.png" width="40px" style="margin: 10px;">
                 </div>
                 <div class="col-4 text-center align-self-center" title="<?php echo $arr_name ?>">
                   <p class="lead fw-normal text-dark">
@@ -154,6 +156,7 @@ include("../php/search.php");
             </div>
           </div>
         </div>
+
       </div>
     </section>
   </main>
