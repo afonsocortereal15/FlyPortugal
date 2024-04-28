@@ -4,8 +4,47 @@ main {
   background-size: cover;
 }
 
-.card {
+.airline-logo {
+  padding: 10px;
+}
 
+.airline-name {
+  margin-bottom: 0 !important;
+}
+
+.flight-card {
+  margin: 2rem;
+}
+
+.flight-number {
+  padding: 0px;
+  margin: 0px;
+}
+
+.tab {
+  color: #127045;
+}
+
+.tab:hover {
+  background-color:#127045 !important;
+  color: white !important;
+  transition: 0.3s;
+}
+
+.tab:focus {
+  background-color:#127045 !important;
+  color: white !important;
+}
+
+.nav-link.active {
+  background-color: #127045 !important;
+}
+
+.navbar-toggler {
+  color: #127045;
+}
+
+.card {
   width: 100%;
   display: flex;
 }

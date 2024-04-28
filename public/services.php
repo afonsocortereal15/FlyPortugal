@@ -1,7 +1,8 @@
 <?php
 include("../inc/connect.inc");
 include("../src/flightSearch.php");
-$sql = "SELECT * FROM coffeeshop WHERE idAirport= 1";
+include("../src/getServices.php");
+$sql = "SELECT * FROM coffeeshops WHERE idAirport= 1";
 $result = mysqli_query($conn, $sql);
 ?>
 <html lang="en">
@@ -12,7 +13,7 @@ $result = mysqli_query($conn, $sql);
   <title>FlyPortugal</title>
 
   <!-- Favicon-->
-  <link rel="icon" type="image/x-icon" href="../assets/favicon.ico" />v
+  <link rel="icon" type="image/x-icon" href="../assets/favicon.ico" />
 
   <!-- Bootstrap -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
@@ -28,10 +29,10 @@ $result = mysqli_query($conn, $sql);
 
 <body class="d-flex flex-column h-100">
   <main class="flex-shrink-0 min-vh-100" style="background-image: url('<?php echo $bg_image; ?>')">
-    <!-- Navigation -->
+    <!-- Navabar -->
     <nav class="navbar navbar-expand-lg" style="padding-top: 20px">
       <div class="container px-5">
-        <a class="navbar-brand" href="../" style="width: 200px"><img src="../assets/flyportugal-logo.png" width="100%" /></a>
+        <a class="navbar-brand" href="../" style="width: 200px"><img src="../assets/img/flyportugal-logo.png" width="100%" /></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" \ data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="bi bi-list"></span>
         </button>
@@ -46,7 +47,6 @@ $result = mysqli_query($conn, $sql);
             <li class="nav-item">
               <a class="nav-link" href="#">About Us</a>
             </li>
-            <li></li>
           </ul>
         </div>
       </div>
@@ -55,49 +55,89 @@ $result = mysqli_query($conn, $sql);
       <div class="container px-5">
         <div class="row gx-5 align-items-center justify-content-center">
           <div class="col-md-11 col-sm-10 col-10 bg-white rounded-3" style="margin-bottom: 100px;">
-
-
-            <?php
-            $counter = 0;
-            if (mysqli_num_rows($result) > 0) {
-              // output data of each row in a card
-              while ($row = mysqli_fetch_assoc($result)) {
-                if ($counter == 0) {
-                  echo "<div class='row' style='padding-bottom: 10px;'>";
-                }
-                echo "
-      <div class='col-sm-12 col-12 col-md-3 xixi d-flex'>
-      <div class='card mb-4' style='width: 18rem; margin-top: 5px;'>
-      <img src=" . $row["logoCoffeeShop"] . " class='card-img-top' alt='..." . $row["nameCoffeeShop"] . "'>
-      <div class='card-body'>
-        <h5 class='card-title'>" . $row["nameCoffeeShop"] . "</h5>
-        <p class='card-text'>" . $row["locationCoffeeShop"] . "</p>
-        <p class='card-text'>" . $row["timeCoffeeShop"] . "</p>
-      </div>
-    </div>
-      </div>
-    ";
-                $counter++;
-
-                if ($counter == 4) {
-                  echo "</div>";
-                  $counter = 0;
-                }
-              }
-            } else {
-              echo "0 results";
-            }
-            $conn->close();
+            <!-- Flight Details -->
+            <div class="flight-card text-right text-xl-start">
+              <div class="row">
+                <div class="col align-self-center text-center">
+                  <img class="airline-logo" src="<?php echo $airline_logo ?>" alt="<?php echo $airline_name; ?> Logo" title="<?php echo $airline_name; ?> Logo" width="65%">
+                </div>
+                <div class="col align-self-center text-center">
+                  <h1 class="airline-name fw-bolder text-dark" title="Airline">
+                    <?php echo $airline_name; ?>
+                  </h1>
+                  <h5 class="flight-number fw-bolder text-dark" title="Flight IATA / ICAO">
+                    <?php echo $flight_iata; ?> /
+                    <?php echo $flight_icao ?>
+                  </h5>
+                </div>
+              </div>
+              <br>
+              <div class="row">
+                <div class="col-4 text-center align-self-center" title="<?php echo $dep_name ?>">
+                  <p class="lead fw-normal text-dark">
+                    <?php echo $dep_city; ?> -
+                    <?php echo $dep_iata; ?>
+                  </p>
+                </div>
+                <div class="col-4 text-center align-self-center">
+                  <img src="../assets/img/airplane.png" width="40px" style="margin: 10px;">
+                </div>
+                <div class="col-4 text-center align-self-center" title="<?php echo $arr_name ?>">
+                  <p class="lead fw-normal text-dark">
+                    <?php echo $arr_city; ?> -
+                    <?php echo $arr_iata; ?>
+                  </p>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-12 col-md-4 text-center align-self-center" style="padding: 12px;">
+                  <p class="lead fw-normal text-dark text-center" title="Scheduled Departure Time">
+                    Time -
+                    <?php echo substr($dep_time, -5); ?>
+                  </p>
+                  <p class="lead fw-normal text-dark text-center">
+                    <?php echo $dep_status; ?>
+                  </p>
+                </div>
+                <div class="col-12 col-md-4 text-center align-self-center">
+                  <h4>
+                    <span class="badge text-bg-<?php echo $status_color ?>" title="Flight Status">
+                      <?php echo $status ?>
+                    </span>
+                  </h4>
+                </div>
+                <div class="col-12 col-md-4 text-center align-self-center" style="padding: 12px;">
+                  <p class="lead fw-normal text-dark text-center" title="Scheduled Arrival Time">
+                    Time -
+                    <?php echo substr($arr_time, -5); ?>
+                  </p>
+                  <p class="lead fw-normal text-dark text-center">
+                    <?php echo $arr_status; ?>
+                  </p>
+                </div>
+              </div>
+            </div>
+            <!-- Services Category Selector -->
+            <ul class="nav nav-pills justify-content-center" id="tabSelector">
+              <li class="nav-item">
+                <a class="nav-link active tab">All</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link tab" data-filter="coffeeshops">Coffee Shops</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link tab" data-filter="restaurants">Restaurants</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link tab" data-filter="stores">Stores</a>
+              </li>
+            </ul>
+            <!-- Services Table --> 
+            <?php 
+            printServices(1, "all");
             ?>
           </div>
         </div>
       </div>
-      <style>
-        .card {
-          border: 1px solid #ddd;
-          border-radius: 4px;
-          padding: 16px;
-          margin: 16px 0;
-        }
-      </style>
+
       ?>
