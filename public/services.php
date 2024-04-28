@@ -2,8 +2,6 @@
 include("../inc/connect.inc");
 include("../src/flightSearch.php");
 include("../src/getServices.php");
-$sql = "SELECT * FROM coffeeshops WHERE idAirport= 1";
-$result = mysqli_query($conn, $sql);
 ?>
 <html lang="en">
 

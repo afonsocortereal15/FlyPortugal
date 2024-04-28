@@ -21,8 +21,6 @@ include("../src/flightSearch.php");
   <!-- Core theme CSS -->
   <link rel="stylesheet" type="text/css" href="../assets/css/style.css">
   <link rel="stylesheet" type="text/css" href="../assets/css/flight.css">
-
-  <script href="../assets/js/" ></script>
 </head>
 
 <body class="d-flex flex-column h-100">
@@ -30,7 +28,7 @@ include("../src/flightSearch.php");
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg" style="padding-top: 20px">
       <div class="container px-5">
-        <a class="navbar-brand" href="../" style="width: 200px"><img src="../assets/flyportugal-logo.png" width="100%" /></a>
+        <a class="navbar-brand" href="../" style="width: 200px"><img src="../assets/img/flyportugal-logo.png" width="100%" /></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" \ data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="bi bi-list"></span>
         </button>
