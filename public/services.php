@@ -116,26 +116,50 @@ include("../src/getServices.php");
               </div>
             </div>
             <!-- Services Category Selector -->
-            <ul class="nav nav-pills justify-content-center" id="tabSelector">
-              <li class="nav-item">
-                <a class="nav-link active tab">All</a>
+            <ul class="nav justify-content-start nav-pills status-selector" id="pills-tab" role="tablist">
+              <li class="nav-item" role="presentation">
+                <button class="nav-link active tab" id="pills-all-tab" data-bs-toggle="pill" data-bs-target="#pills-all" type="button" role="tab" aria-controls="pills-all" aria-selected="true">All</button>
               </li>
-              <li class="nav-item">
-                <a class="nav-link tab" data-filter="coffeeshops">Coffee Shops</a>
+
+              <li class="nav-item" role="presentation">
+                <button class="nav-link tab" id="pills-coffeeshops-tab" data-bs-toggle="pill" data-bs-target="#pills-coffeeshops" type="button" role="tab" aria-controls="pills-coffeeshops" aria-selected="false">Coffeeshops</button>
               </li>
-              <li class="nav-item">
-                <a class="nav-link tab" data-filter="restaurants">Restaurants</a>
+
+              <li class="nav-item" role="presentation">
+                <button class="nav-link tab" id="pills-restaurants-tab" data-bs-toggle="pill" data-bs-target="#pills-restaurants" type="button" role="tab" aria-controls="pills-restaurants" aria-selected="false">Restaurants</button>
               </li>
-              <li class="nav-item">
-                <a class="nav-link tab" data-filter="stores">Stores</a>
+
+              <li class="nav-item" role="presentation">
+                <button class="nav-link tab" id="pills-stores-tab" data-bs-toggle="pill" data-bs-target="#pills-stores" type="button" role="tab" aria-controls="pills-stores" aria-selected="false">Stores</button>
               </li>
+
             </ul>
-            <!-- Services Table --> 
-            <?php 
-            printServices(1, "all");
-            ?>
+            <!-- Content for each pill -->
+            <div class="tab-content" id="pills-tabContent">
+              <!-- All Tab -->
+              <div class="tab-pane fade show active" id="pills-all" role="tabpanel" aria-labelledby="pills-all-tab">
+                <?php printServices($dep_iata, "all") ?>
+              </div>
+
+              <!-- Coffeeshops tab -->
+              <div class="tab-pane fade" id="pills-coffeeshops" role="tabpanel" aria-labelledby="pills-coffeeshops-tab">
+                <?php printServices($dep_iata, "coffeeshops") ?>
+              </div>
+
+              <!-- Restaurants tab -->
+              <div class="tab-pane fade" id="pills-restaurants" role="tabpanel" aria-labelledby="pills-restaurants-tab">
+                <?php printServices($dep_iata, "restaurants") ?>
+              </div>
+
+              <!-- Stores tab -->
+              <div class="tab-pane fade" id="pills-stores" role="tabpanel" aria-labelledby="pills-stores-tab">
+                <?php printServices($dep_iata, "stores") ?>
+              </div>
+            </div>
           </div>
         </div>
       </div>
-
-      ?>
+    </section>
+  </main>
+</body>
+</html>
