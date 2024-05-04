@@ -33,7 +33,7 @@ if (!empty($api_key) && !empty($flightNumber)) { // If both the API key and flig
 
     $decoded = json_decode($json, true);
 
-    if (isset($decoded["error"]["message"]) && $decoded["error"]["message"] == "Flight not found") { // If the flight is still not found
+    if ($decoded["error"]["message"] == "Flight not found") { // If the flight is still not found
       // Redirect to the flight not found error page
       header("Location: ../errors/flight-not-found.html");
       exit;
@@ -58,6 +58,8 @@ if (!empty($api_key) && !empty($flightNumber)) { // If both the API key and flig
       $bg_image = "../assets/img/bg/{$dep_icao}.jpg";
     } elseif (in_array($arr_icao, $pt_airports)) {
       $bg_image = "../assets/img/bg/{$arr_icao}.jpg";
+    } else {
+      $bg_image = "../assets/img/bg/default-bg.jpeg";
     }
 
     // Set the status and status badge color based on the Flight Status
