@@ -17,8 +17,8 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
   <!-- Core theme CSS -->
-  <link rel="stylesheet" href="css/style.css">
-  <link rel="stylesheet" href="css/index.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/index-style.css">
 </head>
 
 <body class="d-flex flex-column h-100">
@@ -26,7 +26,7 @@
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg" style="padding-top: 20px">
       <div class="container px-5">
-        <a class="navbar-brand" href="./" style="width: 200px"><img src="assets/flyportugal-logo.png" width="100%" /></a>
+        <a class="navbar-brand" href="./" style="width: 200px"><img src="assets/img/flyportugal-logo.png" width="100%" /></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" \ data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="bi bi-list"></span>
         </button>
@@ -61,7 +61,7 @@
               </p>
               <div class="search">
                 <i class="bi bi-search"></i>
-                <form action="flight/index.php" method="get">
+                <form action="public/main.php" method="get">
                   <input type="text" class="form-control col-sm-12 col-md-6" placeholder="Flight Number" name="flight" value="<?php echo $_COOKIE['flight']; ?>" />
                   <button class="btn btn-primary" type="submit">Search</button>
                 </form>

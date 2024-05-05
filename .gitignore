@@ -1,5 +1,3 @@
 
-php/.env
-json/metar.json
-json/example.json
-json/error-example.json
+test/
+inc/info.env

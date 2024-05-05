@@ -1,6 +1,6 @@
 <?php
 // Define the API key and the flight number from the GET request
-$env = parse_ini_file('.env');
+$env = parse_ini_file('../inc/info.env');
 $api_key = isset($env['API_KEY']) ? $env['API_KEY'] : ''; // API key from the environment file or set to an empty string
 $flightNumber = isset($_GET['flight']) ? htmlspecialchars($_GET['flight']) : ''; // Flight number from the GET request or set to an empty string
 
@@ -33,7 +33,7 @@ if (!empty($api_key) && !empty($flightNumber)) { // If both the API key and flig
 
     $decoded = json_decode($json, true);
 
-    if (isset($decoded["error"]["message"]) && $decoded["error"]["message"] == "Flight not found") { // If the flight is still not found
+    if ($decoded["error"]["message"] == "Flight not found") { // If the flight is still not found
       // Redirect to the flight not found error page
       header("Location: ../errors/flight-not-found.html");
       exit;
@@ -55,9 +55,11 @@ if (!empty($api_key) && !empty($flightNumber)) { // If both the API key and flig
 
     // Set the background image based on the departure and arrival airport
     if (in_array($dep_icao, $pt_airports)) {
-      $bg_image = "../assets/bg/{$dep_icao}.jpg";
+      $bg_image = "../assets/img/bg/{$dep_icao}.jpg";
     } elseif (in_array($arr_icao, $pt_airports)) {
-      $bg_image = "../assets/bg/{$arr_icao}.jpg";
+      $bg_image = "../assets/img/bg/{$arr_icao}.jpg";
+    } else {
+      $bg_image = "../assets/img/bg/default-bg.jpeg";
     }
 
     // Set the status and status badge color based on the Flight Status
