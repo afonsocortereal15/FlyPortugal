@@ -14,7 +14,7 @@ include("../src/flightSearch.php");
   <!-- Bootstrap -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-
+  
   <!-- Bootstrap Icons-->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
 
@@ -52,7 +52,7 @@ include("../src/flightSearch.php");
     <section class="py-3">
       <div class="container px-5">
         <div class="row gx-5 align-items-center justify-content-center">
-          <div class="col-md-8 bg-white rounded-3" style="margin-bottom: 100px;">
+          <div class="col-md-8 bg-white rounded-3">
             <div class="flight-card text-right text-xl-start">
               <div class="row">
                 <div class="col align-self-center text-center">
@@ -154,7 +154,6 @@ include("../src/flightSearch.php");
             </div>
           </div>
         </div>
-
       </div>
     </section>
   </main>
@@ -199,8 +198,7 @@ include("../src/flightSearch.php");
     // Update the badge background color based on the remaining time
     if (seconds_left < 3600) {
       document.getElementById("depCountdown").classList.add('text-bg-warning');
-    }
-    if (seconds_left < 1800) {
+    } else if (seconds_left < 1800) {
       document.getElementById("depCountdown").classList.add('text-bg-danger');
     } else {
       document.getElementById("depCountdown").classList.add('text-bg-success');
