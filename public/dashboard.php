@@ -37,30 +37,30 @@ include("../src/dashboardData.php");
         <div class="row gx-5 align-items-center justify-content-center">
           <div class="col-md-12 bg-white rounded-3" style="padding: 20px;">
             <div class="align-items-center justify-content-center text-center">
-              <h1 class="display-2">Dashboard</h1>
+              <h1 >Dashboard</h1>
             </div>
             <div class="row align-items-center justify-content-center text-center">
-              <div class="col-md-4">
-                <button type="button" class="btn btn-secondary"  onclick="window.location.href='airportManagement.php'">
-                  <h1 class="display-5">Airports</h1>
+              <div class="col-md-3">
+                <button type="button" class="btn btn-secondary" onclick="window.location.href='dashboardAirports.php'">
+                  <h2>Airports</h2>
                   <br>
-                  <h3 class="display-6"><?php echo $airportsCount; ?></h3>
+                  <h3><?php echo $airportsCount; ?></h3>
                 </button>
               </div>
-              <div class="col-md-4">
-                <button type="button" class="btn btn-secondary" onclick="window.location.href='amenityManagement.php'">
-                  <h1 class="display-5">Amenities</h1>
+              <div class="col-md-3">
+                <button type="button" class="btn btn-secondary" onclick="window.location.href='dashboardAmenities.php'">
+                  <h2>Amenities</h2>
                   <br>
-                  <h3 class="display-6"><?php echo $amenitiesCount; ?></h3>
+                  <h3><?php echo $amenitiesCount; ?></h3>
                 </button>
               </div>
             </div>
             <div class="row align-items-center justify-content-center text-center">
-              <div class="col-md-4">
-                <button type="button" class="btn btn-secondary">
-                  <h1 class="display-5">Lounges</h1>
+              <div class="col-md-3">
+                <button type="button" class="btn btn-secondary" onclick="window.location.href='dashboardLounges.php'">
+                  <h2>Lounges</h2>
                   <br>
-                  <h3 class="display-6"><?php echo $loungesCount; ?></h1>
+                  <h3><?php echo $loungesCount; ?></h3>
                 </button>
               </div>                                  
             </div>
