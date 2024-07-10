@@ -14,7 +14,7 @@ include("../src/flightSearch.php");
   <!-- Bootstrap -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-  
+
   <!-- Bootstrap Icons-->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
 
@@ -138,7 +138,16 @@ include("../src/flightSearch.php");
                     <?php echo $dep_gate; ?>
                   </p>
                 </div>
-                <div class="col"></div>
+                <div class="col-12 col-md-4 text-center align-self-center">
+                  <?php if ($status == "Scheduled" && in_array($dep_icao, $pt_airports)) : ?>
+                    <button type="button" class="btn btn-primary" onclick="window.location.href='services.php?flight=<?php echo $flight_iata ?>'">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8"></path>
+                      </svg>
+                      Airport Facilities
+                    </button>
+                  <?php endif; ?>
+                </div>
 
                 <div class="col text-center align-self-center" style="padding: 12px;">
                   <p class="lead fw-normal text-dark text-center" title="Arrival Terminal">
