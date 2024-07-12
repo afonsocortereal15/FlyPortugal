@@ -9,19 +9,19 @@ function printServices($airport, $service) {
 
   switch ($service) {
     case "coffeeshops":
-      $sql = "SELECT * FROM amenities WHERE idAirport= $airport AND typeAmenity=1";
+      $sql = "SELECT * FROM venues WHERE idAirport= $airport AND typeVenue=1";
       break;
 
     case "restaurants":
-      $sql = "SELECT * FROM amenities WHERE idAirport= $airport AND typeAmenity=2";
+      $sql = "SELECT * FROM venues WHERE idAirport= $airport AND typeVenue=2";
       break;
 
     case "stores":
-      $sql = "SELECT * FROM amenities WHERE idAirport= $airport AND typeAmenity=3";
+      $sql = "SELECT * FROM venues WHERE idAirport= $airport AND typeVenue=3";
       break;
 
     default:
-      $sql = "SELECT * FROM amenities WHERE idAirport= $airport";
+      $sql = "SELECT * FROM venues WHERE idAirport= $airport";
       break;
   }
 
@@ -36,11 +36,11 @@ function printServices($airport, $service) {
       echo '
         <div class="col-sm-12 col-12 col-md-3 d-flex">
           <div class="card mb-4" style="width: 18rem; margin-top: 5px;">
-            <img src="data:image/jpeg;base64,' . base64_encode($row['logoAmenity']) . '" class="card-img-top" alt="..." . $row["nameCoffeeShop"] . "">
+            <img src="data:image/jpeg;base64,' . base64_encode($row['logoVenue']) . '" class="card-img-top" alt="..." . $row["nameCoffeeShop"] . "">
             <div class="card-body">
-              <h5 class="card-title">' . $row['nameAmenity'] . '</h5>
-              <p class="card-text">' . $row['locationAmenity'] . '</p>
-              <p class="card-text">' . $row['timeAmenity'] . '</p>
+              <h5 class="card-title">' . $row['nameVenue'] . '</h5>
+              <p class="card-text">' . $row['locationVenue'] . '</p>
+              <p class="card-text">' . $row['timeVenue'] . '</p>
             </div>
           </div>
         </div>
