@@ -58,6 +58,7 @@
   <footer>
     <div class="container px-5 align-content-center small m-0 text-dark">
       Copyright &copy; FlyPortugal 2024 - All rights reserved.
+      <a href="public/dashboard.php">Dashboard</a>
     </div>
   </footer>
 </body>
