@@ -64,13 +64,13 @@ if (!isset($_SESSION['loggedin'])) {
                 <option value="" selected>Selecione o estabelecimento</option>
                 <?php
                 // Query to retrieve all types from the database
-                $sql = "SELECT * FROM services";
+                $sql = "SELECT * FROM services INNER JOIN airports ON services.idAirport=airports.idAirport";
                 $result = $conn->query($sql);
 
                 if ($result->num_rows > 0) {
                   while ($row = $result->fetch_assoc()) {
                     // Generate options for the select dropdown
-                    echo "<option value=\"" . $row["idService"] . "\">" . $row["nameService"] . "</option>";
+                    echo "<option value=\"" . $row["idService"] . "\">" . $row["nameService"] . " - " . $row["iataAirport"] ."</option>";
                   }
                 } else {
                   // Display a message if no users are found

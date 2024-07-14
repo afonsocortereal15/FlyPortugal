@@ -79,7 +79,7 @@ if (!isset($_SESSION['loggedin'])) {
                 ?>
               </select>
               <!-- Search button -->
-              <button type="submit" class="btn w-25" style="background: #cc6633; color: white;">Selecionar</button>
+              <button type="submit" class="btn btn-success w-25">Selecionar</button>
             </form>
             <h4>
               <?php
@@ -134,7 +134,7 @@ if (!isset($_SESSION['loggedin'])) {
 
                 if ($result->num_rows > 0) {
                   while ($row = $result->fetch_assoc()) {
-                    echo "<option value=\"" . $row["idAirport"] . "\">" . $row ["iataAirport"] . " - " . $row["nameAirport"] . "</option>";
+                    echo "<option value=\"" . $row["idAirport"] . "\">" . $row["iataAirport"] . " - " . $row["nameAirport"] . "</option>";
                   }
                 } else {
                   echo "<option>SEM RESULTADOS - CONTACTAR ADMIN</option>";

@@ -62,22 +62,24 @@ if (!isset($_SESSION['loggedin'])) {
                 </button>
               </div>
               <div class="col-md-3">
-                <button type="button" class="btn btn-secondary" onclick="window.location.href='dashboardVenues.php'" style="width: 100%;">
-                  <h2>Venues</h2>
+                <button type="button" class="btn btn-secondary" onclick="window.location.href='dashboardServices.php'" style="width: 100%;">
+                  <h2>Services</h2>
                   <br>
-                  <h3><?php echo $venuesCount; ?></h3>
+                  <h3><?php echo $servicesCount; ?></h3>
                 </button>
               </div>
             </div>
+            <!--
             <div class="row align-items-center justify-content-center text-center">
               <div class="col-md-3">
                 <button type="button" class="btn btn-secondary" onclick="window.location.href='dashboardLounges.php'" style="width: 100%;">
                   <h2>Lounges</h2>
                   <br>
-                  <h3><?php echo $loungesCount; ?></h3>
+                  <h3><?php //echo $loungesCount; ?></h3>
                 </button>
               </div>
             </div>
+            -->
           </div>
         </div>
       </div>
