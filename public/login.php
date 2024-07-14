@@ -53,7 +53,7 @@
               </div>
 
               <!-- Submit button -->
-              <button type="submit" class="btn btn-success btn-block mb-4">Sign in</button>
+              <button type="submit" class="btn btn-success btn-block mb-4">Entrar</button>
             </form>
           </div>
         </div>

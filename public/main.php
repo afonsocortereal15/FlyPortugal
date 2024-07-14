@@ -39,7 +39,7 @@ include("../src/flightSearch.php");
             <div class="flight-card text-right text-xl-start">
               <div class="row">
                 <div class="col align-self-center text-center">
-                  <img class="airline-logo" src="<?php echo $airline_logo ?>" alt="<?php echo $airline_name; ?> Logo" title="<?php echo $airline_name; ?> Logo" width="100%">
+                  <img class="airline-logo" src="<?php echo $airline_logo ?>" alt="<?php echo $airline_name; ?> Logo" title="<?php echo $airline_name; ?> Logo" width="85%">
                 </div>
                 <div class="col align-self-center text-center">
                   <h1 class="airline-name fw-bolder text-dark" title="Airline">
