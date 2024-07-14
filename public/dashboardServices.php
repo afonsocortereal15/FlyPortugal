@@ -1,6 +1,6 @@
 <?php
 include("../inc/connect.inc");
-include("../src/venuesEdit.php");
+include("../src/servicesEdit.php");
 
 session_start();
 if (!isset($_SESSION['loggedin'])) {
@@ -58,19 +58,19 @@ if (!isset($_SESSION['loggedin'])) {
         <div class="row gx-5 align-items-center justify-content-center">
           <div class="col-md-12 bg-white rounded-3" style="padding: 20px;">
             <h2>Estabelecimentos</h2>
-            <form action="dashboardVenues.php" method="GET">
-              <!-- Venue select -->
-              <select class="mb-1" id="venue" name="venue" required>
+            <form action="dashboardServices.php" method="GET">
+              <!-- Service select -->
+              <select class="mb-1" id="service" name="service" required>
                 <option value="" selected>Selecione o estabelecimento</option>
                 <?php
                 // Query to retrieve all types from the database
-                $sql = "SELECT * FROM venues";
+                $sql = "SELECT * FROM services";
                 $result = $conn->query($sql);
 
                 if ($result->num_rows > 0) {
                   while ($row = $result->fetch_assoc()) {
                     // Generate options for the select dropdown
-                    echo "<option value=\"" . $row["idVenue"] . "\">" . $row["nameVenue"] . "</option>";
+                    echo "<option value=\"" . $row["idService"] . "\">" . $row["nameService"] . "</option>";
                   }
                 } else {
                   // Display a message if no users are found
@@ -83,53 +83,53 @@ if (!isset($_SESSION['loggedin'])) {
             </form>
             <h4>
               <?php
-              if (isset($strVenue)) {
-                echo $strVenue;
-                printForm($venue);
+              if (isset($strService)) {
+                echo $strService;
+                printForm($service);
               }
               ?>
             </h4>
-            <button type="button" class="btn btn-success md-2 w-25" data-bs-toggle="modal" data-bs-target="#venueModal">Criar estabelecimento</button>
+            <button type="button" class="btn btn-success md-2 w-25" data-bs-toggle="modal" data-bs-target="#serviceModal">Criar estabelecimento</button>
           </div>
         </div>
       </div>
     </main>
   </section>
   <!-- Modal -->
-  <div class="modal fade" id="venueModal" tabindex="-1" aria-labelledby="venueModalLabel" aria-hidden="true">
+  <div class="modal fade" id="serviceModal" tabindex="-1" aria-labelledby="serviceModalLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
-        <form action="../src/venuesCreate.php" method="POST">
+        <form action="../src/servicesCreate.php" method="POST">
           <!-- Modal header -->
           <div class="modal-header">
-            <h1 class="modal-title fs-5" id="venueModalLabel">Criar estabelecimento</h1>
+            <h1 class="modal-title fs-5" id="serviceModalLabel">Criar estabelecimento</h1>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
 
           <!-- Modal Body -->
           <div class="modal-body">
-            <form action="../src/venuesCreate.php" method="POST" enctype="multipart/form-data">
+            <form action="../src/servicesCreate.php" method="POST" enctype="multipart/form-data">
               <div class="input-group mb-3">
                 <span class="input-group-text">Nome</span>
-                <input type="text" class="form-control" name="nameVenue">
+                <input type="text" class="form-control" name="nameService">
               </div>
               <div class="input-group mb-3">
                 <span class="input-group-text">Localização</span>
-                <input type="text" class="form-control" name="locationVenue">
+                <input type="text" class="form-control" name="locationService">
               </div>
               <div class="input-group mb-3">
                 <span class="input-group-text">Horário (00:00 - 00:00)</span>
-                <input type="text" class="form-control" name="timeVenue">
+                <input type="text" class="form-control" name="timeService">
               </div>
               <div class="input-group mb-3">
                 <span class="input-group-text">Logotipo</span>
-                <input type="file" accept="image/*" class="form-control" name="logoVenue" id="logoVenue">
+                <input type="file" accept="image/*" class="form-control" name="logoService" id="logoService">
               </div>
               <!-- Type select -->
-              <select class="mb-2" id="typeVenue" name="typeVenue" required>
+              <select class="mb-2" id="typeService" name="typeService" required>
                 <option value="" selected>Selecione o tipo de Estabelecimento</option>
                 <?php
-                $sql = "SELECT * FROM venuetype";
+                $sql = "SELECT * FROM servicetype";
                 $result = $conn->query($sql);
 
                 if ($result->num_rows > 0) {
@@ -150,7 +150,7 @@ if (!isset($_SESSION['loggedin'])) {
 
                 if ($result->num_rows > 0) {
                   while ($row = $result->fetch_assoc()) {
-                    echo "<option value=\"" . $row["idAirport"] . "\">" . $row ["iataAirport"] . " - " . $row["nameAirport"] . "</option>";
+                    echo "<option value=\"" . $row["idAirport"] . "\">" . $row["iataAirport"] . " - " . $row["nameAirport"] . "</option>";
                   }
                 } else {
                   echo "<option>SEM RESULTADOS - CONTACTAR ADMIN</option>";
@@ -179,13 +179,13 @@ if (!isset($_SESSION['loggedin'])) {
 </script>
 
 <script>
-  function deleteVenue(idVenue) {
+  function deleteService(idService) {
     // Send an AJAX request to the server
-    fetch('../src/venuesDelete.php?idVenue=' + idVenue)
+    fetch('../src/servicesDelete.php?idService=' + idService)
       .then(response => response.text())
       .then(data => console.log('Request successful!', data))
       .catch(error => console.error('Error:', error));
-    location.href = 'dashboardVenues.php';
+    location.href = 'dashboardServices.php';
   }
 </script>
 
