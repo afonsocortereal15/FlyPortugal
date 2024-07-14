@@ -1,31 +1,21 @@
 <?php
 include("../inc/connect.inc");
-function printServices($airport, $service) {
+function printServices($airport, $service)
+{
   global $conn;
-  $sql = "SELECT idAirport FROM airports WHERE iataAirport ='$airport'";
+  $sql = "SELECT idAirport FROM airports WHERE iataAirport='$airport'";
   $result = mysqli_query($conn, $sql);
   $row = mysqli_fetch_assoc($result);
-  $airport = $row['idAirport'];
+  $airport = $row['idAirport'][0];
 
-  switch ($service) {
-    case "coffeeshops":
-      $sql = "SELECT * FROM venues WHERE idAirport= $airport AND typeVenue=1";
-      break;
-
-    case "restaurants":
-      $sql = "SELECT * FROM venues WHERE idAirport= $airport AND typeVenue=2";
-      break;
-
-    case "stores":
-      $sql = "SELECT * FROM venues WHERE idAirport= $airport AND typeVenue=3";
-      break;
-
-    default:
-      $sql = "SELECT * FROM venues WHERE idAirport= $airport";
-      break;
+  if ($service == "all") {
+    $sql = "SELECT * FROM services WHERE idAirport='$airport'";
+  } else {
+    $sql = "SELECT * FROM services WHERE idAirport='$airport' AND typeService='$service'";
   }
 
   $result = mysqli_query($conn, $sql);
+
   $counter = 0;
   if (mysqli_num_rows($result) > 0) {
     // output data of each row in a card
@@ -36,11 +26,11 @@ function printServices($airport, $service) {
       echo '
         <div class="col-sm-12 col-12 col-md-3 d-flex">
           <div class="card mb-4" style="width: 18rem; margin-top: 5px;">
-            <img src="data:image/jpeg;base64,' . base64_encode($row['logoVenue']) . '" class="card-img-top" alt="..." . $row["nameCoffeeShop"] . "">
+            <img src="data:image/jpeg;base64,' . base64_encode($row['logoService']) . '" class="card-img-top" alt="...">
             <div class="card-body">
-              <h5 class="card-title">' . $row['nameVenue'] . '</h5>
-              <p class="card-text">' . $row['locationVenue'] . '</p>
-              <p class="card-text">' . $row['timeVenue'] . '</p>
+              <h5 class="card-title">' . $row['nameService'] . '</h5>
+              <p class="card-text">' . $row['locationService'] . '</p>
+              <p class="card-text">' . $row['timeService'] . '</p>
             </div>
           </div>
         </div>
@@ -52,12 +42,10 @@ function printServices($airport, $service) {
         $counter = 0;
       }
     }
-    if ($counter =! 4 || $counter=!0) {
+    if ($counter !=0 && $counter !=4) {
       echo "</div>";
     }
   } else {
     echo "0 results";
   }
-
-
 }
