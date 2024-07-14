@@ -5,9 +5,9 @@ $sql = "SELECT * FROM airports";
 $result = mysqli_query($conn, $sql);
 $airportsCount = mysqli_num_rows($result);
 
-$sql = "SELECT * FROM venues";
+$sql = "SELECT * FROM services";
 $result = mysqli_query($conn, $sql);
-$venuesCount = mysqli_num_rows($result);
+$servicesCount = mysqli_num_rows($result);
 
 $sql = "SELECT * FROM lounges";
 $result = mysqli_query($conn, $sql);

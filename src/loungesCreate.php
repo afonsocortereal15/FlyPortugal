@@ -2,7 +2,7 @@
 include("../inc/connect.inc");
 
 // Get the lounge information from the POST request
-$nameLounge=$_POST["nameLounge"];
+$nameLounge = $_POST["nameLounge"];
 $locationLounge = $_POST["locationLounge"];
 $timeLounge = $_POST["timeLounge"];
 $descriptionLounge = $_POST["descriptionLounge"];
@@ -17,5 +17,5 @@ if (mysqli_query($conn, $sql)) {
   header("Location:../public/dashboardLounges.php");
 } else {
   // If there was an error, display the error message
-  echo "Error: ". $sql. "<br>". mysqli_error($conn);
+  echo "Error: " . $sql . "<br>" . mysqli_error($conn);
 }

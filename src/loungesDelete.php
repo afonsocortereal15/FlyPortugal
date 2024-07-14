@@ -6,9 +6,10 @@ if (isset($_GET["idLounge"])) {
   deleteLounge($idLounge);
 }
 
-function deleteLounge($idLounge) {
+function deleteLounge($idLounge)
+{
   global $conn;
-  $sql ="DELETE FROM lounges WHERE idLounge=$idLounge";
+  $sql = "DELETE FROM lounges WHERE idLounge=$idLounge";
   if (mysqli_query($conn, $sql)) {
     echo "Lounge apagado";
     header("Location:../public/dashboardLounges.php");

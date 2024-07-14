@@ -6,9 +6,10 @@ if (isset($_GET["idAirport"])) {
   deleteAirport($idAirport);
 }
 
-function deleteAirport($idAirport) {
+function deleteAirport($idAirport)
+{
   global $conn;
-  $sql ="DELETE FROM airports WHERE idAirport=$idAirport";
+  $sql = "DELETE FROM airports WHERE idAirport=$idAirport";
   if (mysqli_query($conn, $sql)) {
     echo "Aeroporto apagado";
     header("Location:../public/dashboardAirports.php");

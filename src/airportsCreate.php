@@ -14,5 +14,5 @@ if (mysqli_query($conn, $sql)) {
   header("Location:../public/dashboardAirports.php");
 } else {
   // If there was an error, display the error message
-  echo "Error: ". $sql. "<br>". mysqli_error($conn);
+  echo "Error: " . $sql . "<br>" . mysqli_error($conn);
 }

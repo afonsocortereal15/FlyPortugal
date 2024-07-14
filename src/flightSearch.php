@@ -9,8 +9,8 @@ $bg_image = '../assets/bg/default-bg.jpeg';
 $decoded = [];
 $dep_icao = 'n/a';
 $arr_icao = 'n/a';
-$dep_estimated_ts ="n/a";
-$arr_estimated_ts ="n/a";
+$dep_estimated_ts = "n/a";
+$arr_estimated_ts = "n/a";
 $status = 'n/a';
 
 if (!empty($api_key) && !empty($flightNumber)) { // If both the API key and flight number are provided
