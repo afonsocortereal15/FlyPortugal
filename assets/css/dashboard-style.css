@@ -1,0 +1,13 @@
+.edit-select {
+  font-size: 1rem !important;
+  font-weight: 400 !important;
+  line-height: 1.5 !important;
+}
+
+.selectize-control {
+  width: 100% !important;
+}
+
+.btn {
+  margin-top: 10px;
+}

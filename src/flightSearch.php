@@ -9,6 +9,8 @@ $bg_image = '../assets/bg/default-bg.jpeg';
 $decoded = [];
 $dep_icao = 'n/a';
 $arr_icao = 'n/a';
+$dep_estimated_ts = "n/a";
+$arr_estimated_ts = "n/a";
 $status = 'n/a';
 
 if (!empty($api_key) && !empty($flightNumber)) { // If both the API key and flight number are provided
@@ -51,7 +53,7 @@ if (!empty($api_key) && !empty($flightNumber)) { // If both the API key and flig
     }
 
     // Define an array of Portuguese airport codes for background images
-    $pt_airports = ['LPPT', 'LPPR', 'LPFR', 'LPMA', 'LPPS', 'LPPD', 'LPAZ', 'LPHR', 'LPFL'];
+    $pt_airports = ['LPPT', 'LPPR', 'LPFR', 'LPBJ', 'LPMA', 'LPPS', 'LPPD', 'LPAZ', 'LPHR', 'LPFL'];
 
     // Set the background image based on the departure and arrival airport
     if (in_array($dep_icao, $pt_airports)) {
@@ -93,7 +95,7 @@ if (!empty($api_key) && !empty($flightNumber)) { // If both the API key and flig
 // Set the flight code cookie for one week
 $cookie_name = "flight";
 $cookie_value = $flight_iata;
-setcookie($cookie_name, $cookie_value, time() + (86400 * 7), "/flyportugal/");
+setcookie($cookie_name, $cookie_value, time() + (86400 * 7), "/");
 
 // Set the airline logo URL
 $airline_logo = "https://cdn.radarbox.com/airlines/" . $airline_icao . ".png";
