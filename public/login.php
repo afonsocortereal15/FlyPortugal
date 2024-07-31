@@ -41,7 +41,7 @@
                 <span class="input-group-text">Username</span>
                 <input type="text" class="form-control" name="username" id="username">
               </div>
-
+              <br>
               <!-- Password input -->
               <div class="input-group mb-3">
                 <span class="input-group-text" id="basic-addon1">Password</span>
